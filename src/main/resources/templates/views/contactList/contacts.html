@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template_fragments/head :: head"></head>
+<title>Contactos</title>
+
+<body>
+
+	<div th:replace="template_fragments/navbar ::  navbar"></div>
+	<div th:replace="template_fragments/mensajeDeAlerta :: mensajeDeAlerta"></div> 
+	<br>
+
+	<div class="container">
+		<div>
+			<h2 class="text-center">Listado de Contactos</h2>
+		</div>
+		<br>
+
+		<div class="container">
+		
+			<a class="btn btn-primary btn-sm mb-2" th:href="@{/views/contactList/create}"
+			th:text="'Nuevo Contacto'" tittle="Crear Nuevo Contacto"> </a>
+		
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<!-- <th scope="col"></th> -->
+						<th scope="col">Cargo/Puesto</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellido</th>
+						<th scope="col">Email</th>
+						<th scope="col">Teléfono</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Eliminar</th>
+					</tr>
+				</thead>
+				<tbody> 
+					 <tr th:each="c:${contacts}">
+						<!-- <th scope="row" th:text="${c.id}">1</th> -->
+						<td th:text="${c.position}">Supervisor</td>
+						<td th:text="${c.name}">Dalia</td>
+						<td th:text="${c.lastName}">Centeno</td>
+						<td th:text="${c.email}">centenoperezdaliae@gmail.com</td>
+						<td th:text="${c.telephone}">787-385-8706</td>
+						
+					 	<td><a class="btn btn-success btn-sm"
+						th:href="@{/views/contactList/edit/} + ${c.id}"
+						th:text="'Editar Contacto'" tittle="Editar Contacto"> </a></td>
+					<td><a class="btn btn-danger btn-sm"
+						th:href="@{/views/contactList/delete/} + ${c.id}"
+						th:text="'Borrar Contactos'" tittle="Eliminar Contactos"
+						onclick="return confirm ('Estás seguro de Eliminar el registro?');">
+					</a></td>  
+					</tr> 
+
+				
+				</tbody>
+			</table>
+
+		</div>
+
+
+
+	</div>
+
+
+
+
+
+	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<!-- <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>  -->
+	<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template_fragments/head :: head"></head>
+<title>Información de Equipos</title>
+
+<body>
+
+	<div th:replace="template_fragments/navbar ::  navbar"></div>
+	<!-- 	<div th:replace="plantilla/mensajeDeAlerta :: mensajeDeAlerta"></div> -->
+
+	<br>
+
+	<div class="container">
+		<div class="d-flex justify-content-center">
+			<h1>Equipos de la Planta de Acueductos y Alcantarillados</h1>
+		</div>
+
+
+		<div class="d-flex align-items-start">
+			<div class="nav flex-column nav-pills me-5 col-3" id="v-pills-tab"
+				role="tablist" aria-orientation="vertical">
+				<button class="nav-link active text-start" id="v-pills-home-tab"
+					data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button"
+					role="tab" aria-controls="v-pills-home" aria-selected="true">Clarificadores
+				</button>
+				<button class="nav-link text-start" id="v-pills-profile-tab"
+					data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+					type="button" role="tab" aria-controls="v-pills-profile"
+					aria-selected="false">Bombas
+				</button>
+				<button class="nav-link text-start" id="v-pills-messages-tab"
+					data-bs-toggle="pill" data-bs-target="#v-pills-messages"
+					type="button" role="tab" aria-controls="v-pills-messages"
+					aria-selected="false">Trituradores
+				</button>
+				<button class="nav-link text-start " id="v-pills-settings-tab"
+					data-bs-toggle="pill" data-bs-target="#v-pills-settings"
+					type="button" role="tab" aria-controls="v-pills-settings"
+					aria-selected="false">Cámara de Contacto de Cloro
+				</button>
+			</div>
+			<!--  ------------------------------------------------------------------------------------------ -->
+			<div class="tab-content col-9" id="v-pills-tabContent">
+				<div class="tab-pane fade show active" id="v-pills-home"
+					role="tabpanel" aria-labelledby="v-pills-home-tab">
+					 <div class="rounded float-end"> 
+						<img th:src="@{/images/clarificador.jpg}" alt="" width="200"
+							height="200">
+					</div>
+					<br>
+					LOS CLARIFICADORES..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic, LOS CLARIFICADORES..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic, LOS CLARIFICADORES..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic,
+				</div>
+
+				<div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+					aria-labelledby="v-pills-profile-tab">
+					 <div class="rounded float-end"> 
+						<img th:src="@{/images/bomba_entrada.jpg}" alt="" width="200"
+							height="200">
+					</div>
+					<br>
+					LAS BOMBAS..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic, LOS CLARIFICADORES..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic, LOS CLARIFICADORES..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic,
+					
+				</div>
+				<div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+					aria-labelledby="v-pills-messages-tab">
+					 <div class="rounded float-end">
+						<img th:src="@{/images/triturador.jpg}" alt="" width="200"
+							height="200">
+					</div>
+					<br>
+					LOS TRITURADORES..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic, LOS CLARIFICADORES..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic, LOS CLARIFICADORES..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic,
+					
+				</div>
+				<div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+					aria-labelledby="v-pills-settings-tab">
+				<div class="rounded float-end">
+						<img th:src="@{/images/camara_contacto_cloro.jpg}" alt="" width="200"
+							height="200">
+					</div>
+					<br>
+					LAS CAMARAS DE CONTACTO DE CLORO..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic, LOS CLARIFICADORES..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic, LOS CLARIFICADORES..... Lorem ipsum dolor sit amet, consectetur
+					adipisicing elit. Voluptates at consequatur molestiae illo
+					inventore eligendi aute dolor sit amet, consectetur adipisicing
+					elit. Voluptates at consequatur molestiae illo inventore eligendi
+					autem, vitae commodi ipsa iusto, aliquam, aliquid itaque, quidem
+					totam voluptatum quod ab distinctio animi. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. Quam dignissimos neque
+					temporibus quas hic,
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<!-- <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>  -->
+	<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template_fragments/head :: head"></head>
+<title>Informe Diario</title>
+
+<body>
+
+	<div th:replace="template_fragments/navbar ::  navbar"></div>
+	<div th:replace="template_fragments/mensajeDeAlerta :: mensajeDeAlerta"></div>
+	<br>		
+			<div class="container">
+			<div th:replace="template_fragments/navReports ::  navReports"></div>
+		</div>
+	<br>
+	<div class="container-fluid">
+		<div>
+			<h3 class="text-center mb-4">INFORME DIARIO DE PAS CAMUY</h3>
+		</div>
+
+		<div>
+			<ul class="list-inline">
+				<li class="list-inline-item"><strong>Fecha:</strong>.</li>
+				<li class="list-inline-item text-decoration-underline">03 de
+					Febrero de 2022</li>
+
+			</ul>
+		</div>
+
+		<div>
+			<table
+				class="table table-bordered table-hover table-striped text-center">
+				<thead>
+					<tr>
+						<th scope="col"></th>
+						<th colspan="2" scope="col">TEMPERATURA</th>
+						<th colspan="2" scope="col">SOL. SED.</th>
+						<th colspan="2" scope="col">pH</th>
+						<th colspan="2" scope="col">OD</th>
+						<th scope="col">LIBRAS</th>
+						<th scope="col">LECTURA</th>
+						<th scope="col">LECTURA</th>
+						<th colspan="4" scope="col">RESIDUAL CLORO</th>
+						<th scope="col">TURBIEDAD</th>
+						<th scope="col">FLUJO</th>
+						<th colspan="2" scope="col">BISULFITO</th>
+						<th colspan="2" scope="col">FERRICO</th>
+						<th scope="col">FLUJO</th>
+						<th scope="col">INICIALES</th>
+				</thead>
+				<thead>
+					<tr>
+						<th scope="col">Hora</th>
+						<th scope="col">In</th>
+						<th scope="col">out</th>
+						<th scope="col">In</th>
+						<th scope="col">Out</th>
+						<th scope="col">In</th>
+						<th scope="col">Out</th>
+						<th scope="col">In</th>
+						<th scope="col">Out</th>
+						<th scope="col">CLORO</th>
+						<th scope="col">Romana #1</th>
+						<th scope="col">Romana #2</th>
+						<th scope="col">CF 101</th>
+						<th scope="col">CF 102</th>
+						<th scope="col">CCC</th>
+						<th scope="col">SP</th>
+						<th scope="col">Parshall</th>
+						<th scope="col">Salida</th>
+						<th scope="col">Stroke</th>
+						<th scope="col">Speed</th>
+						<th scope="col">Stroke</th>
+						<th scope="col">Speed</th>
+						<th scope="col">GPM</th>
+						<th scope="col">Operador</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">0:00</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>7.56</td>
+						<td></td>
+						<td></td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td></td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">2:00</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>7.56</td>
+						<td></td>
+						<td></td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td></td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">4:00</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>7.56</td>
+						<td></td>
+						<td></td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td></td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">6:00</th>
+						<td>28.9</td>
+						<td>29.3</td>
+						<td>4.5</td>
+						<td>0.1</td>
+						<td>6.99</td>
+						<td>7.56</td>
+						<td>1.5</td>
+						<td>5.9</td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td>13.3</td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">8:00</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>7.56</td>
+						<td></td>
+						<td></td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td></td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">10:00</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>7.56</td>
+						<td></td>
+						<td></td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td></td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">12:00</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>7.56</td>
+						<td></td>
+						<td></td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td></td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">14:00</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>7.56</td>
+						<td></td>
+						<td></td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td></td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">16:00</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>7.56</td>
+						<td></td>
+						<td></td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td></td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">18:00</th>
+						<td>28.9</td>
+						<td>29.3</td>
+						<td>4.5</td>
+						<td>0.1</td>
+						<td>6.99</td>
+						<td>7.56</td>
+						<td>1.1</td>
+						<td>6.1</td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td>13.3</td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">20:00</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>7.56</td>
+						<td></td>
+						<td></td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td></td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">22:00</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>7.56</td>
+						<td></td>
+						<td></td>
+						<td>90</td>
+						<td>2000</td>
+						<td>2000</td>
+						<td>0.99</td>
+						<td>0.87</td>
+						<td>2.09</td>
+						<td>0.00</td>
+						<td></td>
+						<td>1.50</td>
+						<td>50</td>
+						<td>-</td>
+						<td>40</td>
+						<td>50</td>
+						<td>1.50</td>
+						<td>JTG</td>
+					</tr>
+					<tr>
+						<th scope="row">PROM</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>-</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+		<div>
+			<div class=row>
+				<div class="col-6">
+					<div class="text-center mt-3">
+						<h3>INFORME DE NIVELES DE CIENO EN TANQUES</h3>
+					</div>
+					<table
+						class="table table-bordered table-hover table-striped mt-1 text-center">
+
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th colspan="2" scope="col">PRIMARIOS</th>
+								<th colspan="2" scope="col">INTERMEDIOS</th>
+								<th colspan="2" scope="col">FINALES</th>
+								<th scope="col">NIEVEL</th>
+							</tr>
+						</thead>
+
+						<thead>
+							<tr>
+								<th scope="col">HORA</th>
+								<th scope="col">101</th>
+								<th scope="col">102</th>
+								<th scope="col">101</th>
+								<th scope="col">102</th>
+								<th scope="col">101</th>
+								<th scope="col">102</th>
+								<th scope="col">H.T.</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">0:00</th>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>75%</td>
+							</tr>
+							<tr>
+								<th scope="row">5:00</th>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>75%</td>
+							</tr>
+							<tr>
+								<th scope="row">7:00</th>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>75%</td>
+							</tr>
+							<tr>
+								<th scope="row">13:00</th>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>75%</td>
+							</tr>
+							<tr>
+								<th scope="row">15:00</th>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>75%</td>
+							</tr>
+							<tr>
+								<th scope="row">21:00</th>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>12"</td>
+								<td>75%</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</div>
+				<div class="col-3">
+					<div class="text-center mt-3">
+						<h3>DUPLICADO DE pH</h3>
+					</div>
+					<table
+						class="table table-bordered table-hover table-striped mt-1 text-center">
+						<thead>
+							<tr>
+								<th scope="col">Turno:</th>
+								<th scope="col">Hora</th>
+								<th scope="col">Buffer 7.0</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col">6:00 AM a 2:00PM</th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+							</tr>
+							<tr>
+								<th scope="col">2:00 PM a 10:00 PM</th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+							</tr>
+							<tr>
+								<th scope="col">10:00 PM a 6:0 AM</th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+							</tr>
+						</tbody>
+					</table>
+
+
+					<table class="table table-bordered table-hover table-striped  text-center">
+						<thead>
+							<tr>
+								<th scope="col">Limpieza CCC.</th>
+								<th scope="col">Si</th>
+								<th scope="col">No</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col">Cámara 101</th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+							</tr>
+							<tr>
+								<th scope="col">Cámara 102</th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+							</tr>
+
+						</tbody>
+					</table>
+
+
+
+				</div>
+				<div class="col-3">
+					<div class="text-center mt-3">
+						<h3>Totalizador</h3>
+					</div>
+					<table
+						class="table table-bordered table-hover table-striped mt-1 text-center">
+						<thead>
+							<tr>
+								<th scope="col">Turno:</th>
+								<th scope="col">Hora</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col">Lectura Hoy</th>
+								<th scope="col">99999.9999</th>
+							</tr>
+							<tr>
+								<th scope="col">Lectura Ayer</th>
+								<th scope="col">89999.9999</th>
+							</tr>
+							<tr>
+								<th scope="col">Total</th>
+								<th scope="col"></th>
+							</tr>
+						</tbody>
+					</table>
+
+					<table
+						class="table table-bordered table-hover table-striped mt-1 text-center">
+						<thead>
+							<tr>
+								<th colspan="2" scope="col">Horas de Operacion EGU</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col">Total Horas</th>
+								<th scope="col">999.9999</th>
+
+							</tr>
+
+
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<div class="text-center mt-3">
+					<h3>INFORME DE BOMBEO AL HT</h3>
+				</div>
+				<table
+					class="table table-bordered table-hover table-striped mt-1 text-center">
+					<thead>
+						<tr>
+							<th scope="col">BOMBEO DE LODOS</th>
+							<th colspan="2" scope="col">Turno 6-2</th>
+							<th colspan="2" scope="col">Turno 2-10</th>
+							<th colspan="2" scope="col">Turno 10-6</th>
+						</tr>
+					</thead>
+
+					<thead>
+						<tr>
+							<th scope="row"></th>
+							<th scope="row">101</th>
+							<th scope="row">102</th>
+							<th scope="row">101</th>
+							<th scope="row">102</th>
+							<th scope="row">101</th>
+							<th scope="row">102</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">Tiempo de Bombeo</th>
+							<td>-</td>
+							<td>5 x 4</td>
+							<td>-</td>
+							<td>4 x 4</td>
+							<td>-</td>
+							<td>-</td>
+
+
+						</tr>
+						<tr>
+							<th scope="row">Volumen de Bombeo</th>
+							<td>0 gal</td>
+							<td>2,000 gal</td>
+							<td>0 gal</td>
+							<td>1,600 gal</td>
+							<td>-</td>
+							<td>-</td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+<div class="col-4">
+				<div class="text-center mt-3">
+					<h3>REGISTRO DE EVENTOS DE LLUVIA</h3>
+				</div>
+				<table
+					class="table table-bordered table-hover table-striped mt-1 text-center">
+					<thead>
+						<tr>
+							<th scope="col">TURNO</th>
+							<th scope="col">PULGADAS DE LLUVIA</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr>					
+							<th scope="row">6:00 - 2:00 PM</th>
+							<td>0.00</td>
+						</tr>
+						<tr>					
+							<th scope="row">2:00 - 10:00 PM</th>
+							<td>0.00</td>
+						</tr>
+						<tr>					
+							<th scope="row">10:00 - 6:00 AM</th>
+							<td>0.00</td>
+						</tr>
+						<tr>					
+							<th scope="row">TOTAL ACUMULADO</th>
+							<td>0.00</td>
+						</tr>
+					
+					</tbody>
+				</table>
+			</div>
+
+
+		</div>
+
+		<div class="row">
+			<div class="col-7">
+				<div class="text-center mt-3">
+					<h3>INFORME DE PRODUCTOS QUIMICOS</h3>
+				</div>
+				<table
+					class="table table-bordered table-hover table-striped mt-1 text-center">
+					<thead>
+						<tr>
+							<th colspan="5" scope="col">CLORO TONELADA</th>
+							<th colspan="5"></th>
+						</tr>
+					</thead>
+					<thead>
+						<tr>
+							<th colspan="2" scope="col">INVENTARIOS DE CILINDROS</th>
+							<th scope="col">LECTURA DE ROMANAS</th>
+							<th scope="col">ROMANA 1</th>
+							<th scope="col">ROMANA 2</th>
+							<th colspan="2" scope="col">HTH</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">LLENOS</th>
+							<td>1</td>
+							<td><strong>LECTURA AYER</strong></td>
+							<td>800</td>
+							<td>2000</td>
+							<td><strong>INV. (LBS)</strong></td>
+							<td>160</td>
+						</tr>
+						<tr>
+							<th scope="row">VACIOS</th>
+							<td>1</td>
+							<td><strong>LECTURA HOY</strong></td>
+							<td>720</td>
+							<td>2000</td>
+							<td><strong>USO (LBS)</strong></td>
+							<td>0 LBS</td>
+						</tr>
+						<tr>
+							<th scope="row">EN USO</th>
+							<td>2</td>
+							<td><strong>CONSUMO</strong></td>
+							<td>80</td>
+							<td>0</td>
+							<td><strong>USO (LBS)</strong></td>
+							<td>0 LBS</td>
+						</tr>
+						<tr>
+							<th scope="row">TOTAL</th>
+							<td>4</td>
+							<td colspan="5"> </td>
+						
+						</tr>
+					</tbody>
+				</table>
+			
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-7">
+				<table
+					class="table table-bordered table-hover table-striped mt-1 text-center">
+					<thead>
+						<tr>
+							<th colspan="4" scope="col">OTROS QUIMICOS</th>
+							
+						</tr>
+					</thead>
+					<thead>
+						<tr>
+							<th scope="col">NOMBRE DE QUIMICOS</th>
+							<th scope="col">LECTURA DE AYER</th>
+							<th scope="col">LECTURA DE HOY</th>
+							<th scope="col">CONSUMO</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">BISULFITO</th>
+							<td>20.5</td>
+							<td>19.0</td>
+							<td>1.5</td>
+							
+						</tr>
+						<tr>
+							<th scope="row">FERRICO</th>
+							<td>19"</td>
+							<td>17"</td>
+							<td>2"</td>
+						</tr>
+						<tr>
+							<th scope="row">SODA CAUSTICA</th>
+							<td>50"</td>
+							<td>48"</td>
+							<td>2"</td>
+						</tr>
+						<tr>
+							<th scope="row">DIESEL</th>
+							<td>26"</td>
+							<td>26" </td>
+							<td>0"</td>
+						
+						</tr>
+					</tbody>
+				</table>
+			
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<!-- <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>  -->
+	<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<div th:fragment="navbar">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" th:href="@{/}"> <img
+				th:src="@{/images/header-logo.png}" class="float-left" alt="Logo"
+				width="400" height="">
+			</a>
+
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end"
+				id="navbarNav">
+				<ul class="navbar-nav ">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page"th:href="@{/}">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/user/login}">Iniciar <!--  th:href="@{/}"-->
+							Sesión</a></li>		
+					<li class="nav-item"><a class="nav-link" th:href="@{/user/register}">Registrarse</a>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Información </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" th:href="@{/user/showAllUsers}">Información de los Usuarios del 
+									Sistema</a></li>
+							<li><a class="dropdown-item" th:href="@{/views/treatmentPlant/plantInformation}">Información de la
+									Planta</a></li>
+							<li><a class="dropdown-item" th:href="@{/views/treatmentPlant/equipmentInformation}">Información de
+									Equipos</a></li>
+							<li><a class="dropdown-item" th:href="@{/views/treatmentPlant/parametersAllowed}">Parámetros
+									Permitidos por EPA</a></li>
+							<div class="dropdown-divider"></div>
+							<li><a class="dropdown-item" th:href="@{/views/treatmentPlant/upcomingInspections}">Próximas Visitas</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Informes </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" th:href="@{/views/reports/bitacora}">Bitacora</a></li>
+							<li><a class="dropdown-item" th:href="@{/views/reports/dailyReport}">Informe Diario</a></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/views/contactList/contacts}">Contáctos</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#">Salir</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>

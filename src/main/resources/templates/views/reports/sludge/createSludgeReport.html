@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template_fragments/head :: head"></head>
+<title>Crear Usuario</title>
+
+<body>
+	<div th:replace="template_fragments/navbar :: navbar"></div>
+	<div th:replace="template_fragments/mensajeDeAlerta :: mensajeDeAlerta"></div>
+
+	<br>
+	<div class="container  ">
+		<h2 th:text="${titulo}" class="text-center fst-normal"></h2>
+		<br>
+		<div class="row border pt-3">
+			<div class="col-2">
+				<p class="text-muted">Usuario: <strong>Jerryezer Torres</strong></p>
+				
+			</div>
+			<div class="col-2"></div>
+			<div class="col-2 fw-bold">PRIMARIOS</div>
+			<div class="col-2 fw-bold">INTERMEDIOS</div>
+			<div class="col-2 fw-bold">FINALES</div>
+			<div class="col-2"></div>
+			<div class="card">
+
+				<form class="row g-3  row justify-content-center card-body"
+					th:action="@{/views/reports/sludge/save}"
+					th:object="${sludgeReport}"  method="post">
+															
+					<input type="hidden" th:field="*{id}">	
+								
+					<div class="col-2 text-center">
+						<label for="hora" class="form-label fw-bold">Hora</label>
+				 		<select th:field="*{hour}"  class="form-select" aria-label="Default select example" id="hora">
+						 	<!-- <option selected>Seleccione:</option>  -->
+							<option value="1">0:00</option>
+							<option value="2">5:00</option>
+							<option value="3">7:00</option>
+							<option value="4">13:00</option>
+							<option value="5">15:00</option>
+							<option value="6">21:00</option>
+						</select> 
+
+					</div>
+					<div class="col-1 text-center">
+						<label for="cp101" class="form-label fw-bold">CP-101</label>
+						<input type="text" th:field="*{cp101}" class="form-control" id="cp101">
+						<strong><small class="form-text text-danger" th:if="${#fields.hasErrors('cp101')}" th:errors="*{cp101}"></small></strong>
+					</div>
+					<div class="col-1 text-center">
+						<label for="cp102" class="form-label fw-bold">CP-102</label>
+						<input type="text" th:field="*{cp102}" class="form-control" id="cp102">
+						<strong><small class="form-text text-danger" th:if="${#fields.hasErrors('cp102')}" th:errors="*{cp102}"></small></strong>
+					</div>
+					<div class="col-1 text-center">
+						<label for="ci101" class="form-label fw-bold">CI-101</label>
+						<input type="text" th:field="*{ci101}" class="form-control" id="ci101">
+						<strong><small class="form-text text-danger" th:if="${#fields.hasErrors('ci101')}" th:errors="*{ci101}"></small></strong>
+					</div>
+					<div class="col-1 text-center">
+						<label for="ci102" class="form-label fw-bold">CI-102</label>
+						<input type="text" th:field="*{ci102}" class="form-control" id="ci102">
+						<strong><small class="form-text text-danger" th:if="${#fields.hasErrors('ci102')}" th:errors="*{ci102}"></small></strong>
+					</div>
+					<div class="col-1 text-center">
+						<label for="cf101" class="form-label fw-bold">CF-101</label>
+						<input type="text" th:field="*{cf101}" class="form-control" id="cf101">
+						<strong><small class="form-text text-danger" th:if="${#fields.hasErrors('cf101')}" th:errors="*{cf101}"></small></strong>
+					</div>
+					<div class="col-1 text-center">
+						<label for="cf102" class="form-label fw-bold">CF-102</label>
+						<input type="text" th:field="*{cf102}" class="form-control" id="cf102">
+						<strong><small class="form-text text-danger" th:if="${#fields.hasErrors('cf102')}" th:errors="*{cf102}"></small></strong>
+					</div>
+					<div class="col-1 text-center">
+						<label for="htLevel" class="form-label fw-bold">HT.</label>
+						<input type="text" th:field="*{htLevel}" class="form-control" id="htLevel">
+						<strong><small class="form-text text-danger" th:if="${#fields.hasErrors('htLevel')}" th:errors="*{htLevel}"></small></strong>
+					</div>
+					<div class="col-9 mt-3">
+						<label for="comment" class="form-label fw-bold">Comentarios:</label>
+						<textarea th:field="*{comment}" class="form-control" id="comment" rows="6"> </textarea>
+					</div>
+					<div class="d-grid gap-2 col-5 mx-auto ">
+						<input type="submit" class="btn btn-primary btn-sm "
+							value="Guardar">
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<!-- <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script> -->
+	<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
+</body>
+</html>

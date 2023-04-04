@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template_fragments/head :: head"></head>
+
+<title>Listar Usuario</title>
+
+<body>
+	<div th:replace="template_fragments/navbar :: navbar"></div>
+	<div th:replace="template_fragments/mensajeDeAlerta :: mensajeDeAlerta"></div>
+
+
+	<div class="container col col-lg-8">
+		<div
+			th:replace="template_fragments/mensajeDeAlerta :: mensajeDeAlerta"></div>
+		<h1 class="text-center mt-2" th:text="${titulo}"></h1>
+
+		<div class="container card mb-4">
+			<div class="row">
+				<div class="col-4 text-center" th:each="u:${user}">
+					<br><br> 
+					<img th:src="@{/images/{img} (img=${u.image})}"
+						class="rounded-circle rounded mx-auto d-block" alt="..."
+						width="200" height="200">
+				</div>
+				<div class="col-6">
+					<br>
+					<div class="card mb-4">
+						<div class="card-body">
+						<h3 th:text="|${user.name}  ${user.lastName}"|> </h3>
+						<br>
+							<div class="row">
+								<dd class="col-sm-4">Status de Usuario:</dd>
+  								<dt class="col-sm-8">ACTIVO</dt>
+								
+								<dd class="col-sm-4">ID del Usuario</dd>
+  								<dt class="col-sm-8" th:text="  ${user.id}"></dt>
+								
+								<dd class="col-sm-4">Nombre:</dd>
+  								<dt class="col-sm-8" th:text="  ${user.name}"></dt>
+								
+								<dd class="col-sm-4">Apellido:</dd>
+  								<dt class="col-sm-8" th:text="  ${user.lastName}"></dt>
+								
+  								<dd class="col-sm-4">Correo Electrónico:</dd>
+  								<dt class="col-sm-8" th:text="  ${user.email}"></dt>
+								
+								<dd class="col-sm-4">Dirección:</dd>
+  								<dt class="col-sm-8" th:text="  ${user.direction}"></dt>
+  								
+  								<dd class="col-sm-4">Teléfono:</dd>
+  								<dt class="col-sm-8" th:text="  ${user.telephone}"></dt>
+  								
+  								<dd class="col-sm-4">Tipo de Usuario:</dd>
+  								<dt class="col-sm-8" th:text="  ${user.type}"></dt>
+  								
+  								<dd class="col-sm-4">Nombre de Usuario:</dd>
+  								<dt class="col-sm-8" th:text="  ${user.username}"></dt>
+  								
+  								
+								
+								
+						<!-- 		<div class="col-6">
+									<div class="card-body">
+										<h5 class="card-title">DATOS DEL USUARIO</h5>
+										<h6 th:text=" 'ID de Usuario: ' + ${user.id}">Nombre:</h6>
+										<h6 th:text=" 'Nombre: ' + ${user.name}">Nombre:</h6>
+										<h6 th:text=" 'Apellido:' + ${user.lastName}"></h6>
+										<h6 th:text=" 'Correo: ' + ${user.email}">Correo:</h6>
+										<h6 th:text=" 'Direccion: ' + ${user.direction}">Direcci�n</h6>
+										<h6 th:text=" 'Tel�fono: ' + ${user.telephone}"></h6>
+										<h6 th:text=" 'Tipo de Usuario: ' + ${user.type}"></h6>
+										<h6 th:text=" 'Nombre de Usuario: ' + ${user.username}"></h6>
+										
+										<h6 th:text=" ' Contrasena ' + ${user.password}"></h6>
+										<h6 th:text=" 'Estatus: ' + ${user.name}">Activo</h6>
+									</div>
+								</div> -->
+							
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+		<!-- <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script> -->
+		<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
+	</div>
+
+
+
+</body>
+</html>
