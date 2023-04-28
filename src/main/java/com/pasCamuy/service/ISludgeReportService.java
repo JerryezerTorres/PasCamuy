@@ -1,6 +1,7 @@
 package com.pasCamuy.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.pasCamuy.model.SludgeReport;
 
@@ -10,6 +11,7 @@ public interface ISludgeReportService {
 	public void save(SludgeReport sludgeReport);
 	public SludgeReport findById (Integer id);
 	public void delete (Integer id);
+	public Optional<SludgeReport> findByIdList(Integer id);
 
 	
 }

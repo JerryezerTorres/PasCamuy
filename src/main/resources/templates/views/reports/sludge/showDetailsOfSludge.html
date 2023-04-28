@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template_fragments/head :: head"></head>
+<title>Informe de Cieno</title>
+
+<body>
+	<div th:replace="template_fragments/navbar ::  navbar"></div>
+	<div th:replace="template_fragments/mensajeDeAlerta :: mensajeDeAlerta"></div>
+	<br>
+	<div class="container">
+		<div th:replace="template_fragments/navReports ::  navReports"></div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+
+			<div class="col-3">
+				<br> <br>
+				<div class="d-grid gap-2 mt-5">
+
+					<a class="btn btn-primary "
+						th:href="@{/views/reports/sludge/createSludgeReport}"
+						th:text="'Registrar Niveles de Cieno'"
+						tittle="Registrar Niveles de Cieno"> </a> <a
+						class="btn btn-primary "
+						th:href="@{/views/reports/sludge/createSludgeReport}"
+						th:text="'Registrar Bombeo de Lodo'"
+						tittle="Registrar Bombeo de Lodo"> </a> <input
+						class="btn btn-primary" type="date">
+				</div>
+			</div>
+
+			<!-- =========================================================================================================================================== -->
+			<div class="col-9">
+				<div class="text-center mt-3 ">
+					<h4>Detalles de la medición del cieno y sus coponentes</h4>
+				</div>
+				<br>
+				<hr>
+			<div class="row">
+			<div class="col-4">
+				<p class="text-muted">Usuario: <strong>Jerryezer Torres</strong></p>
+				
+				</div>
+				<div class="col-4">
+				<p class="text-muted">Hora: <strong th:text="${sludgeReport.hour}">4 de Marzo de 2023</strong></p>
+				</div>
+				<div class="col-4">
+				
+				<p class="text-muted">Fecha: <strong>4 de Marzo de 2023</strong></p>
+				</div>
+			</div>
+
+				<!-- <p th:text="${sludgeReport.user}"></p> -->
+				<div class="form-floating">
+					<textarea th:text="${sludgeReport.comment}" class="form-control"
+						placeholder="Leave a comment here" id="comment"
+						style="height: 100px"></textarea>
+					<label for="comment"></label>
+				</div>
+
+
+
+
+
+				<br>
+				<br>
+
+			</div>
+			<!-- ====================================================================================================================================== -->
+			<div class=" "></div>
+		</div>
+	</div>
+
+	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
+</body>
+</html>

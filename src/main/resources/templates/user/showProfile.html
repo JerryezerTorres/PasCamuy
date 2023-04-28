@@ -26,14 +26,14 @@
 					<br>
 					<div class="card mb-4">
 						<div class="card-body">
-						<h3 th:text="|${user.name}  ${user.lastName}"|> </h3>
+						<h3 th:text="|${user.name}  ${user.lastName}|"> </h3>
 						<br>
 							<div class="row">
 								<dd class="col-sm-4">Status de Usuario:</dd>
   								<dt class="col-sm-8">ACTIVO</dt>
 								
 								<dd class="col-sm-4">ID del Usuario</dd>
-  								<dt class="col-sm-8" th:text="  ${user.id}"></dt>
+  								<dt class="col-sm-8" th:text="${user.id}"></dt>
 								
 								<dd class="col-sm-4">Nombre:</dd>
   								<dt class="col-sm-8" th:text="  ${user.name}"></dt>

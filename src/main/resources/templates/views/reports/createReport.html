@@ -50,16 +50,17 @@
 						</select>
 					<p />
 					<!-- Esto es para traer los datos desde la BD  -->
-<!-- 					<p class="mb-1">
+ 					<p class="mb-1">
 						<select th:field="*{workShift}" class="form-select form-select-sm"
 							aria-label=".form-select-sm example" id="workShift">
 							<option value="0">Turno de Trabajo:</option>
 							<option th:each="workShift :${workShift}"
 								th:value="${workShift.id}"
 								th:text="${workShift.workshift}" />
-							th:value="${workShift.id}" 
+	<!--th:value="${workShift.id}"   -->						
 						</select> 
-					</p> -->
+					</p>
+					 
 						<!-- Esto es para traer los datos desde la BD  -->					
 <!-- 					<p class="mb-1">
 						<select th:field="*{operatorName}" class="form-select form-select-sm"
@@ -74,12 +75,12 @@
 
 
  				<p class="mb-1">
- 						<select th:field="*{workShift}" class="form-select form-select-sm"
+<!--  						<select th:field="*{workShift}" class="form-select form-select-sm"
 							aria-label=".form-select-sm example" id="workShift">
 							<option value="0">Turno de Trabajo:</option>
 						 	<option th:each="workShift : ${workShift}"
 								th:value="${workShift}" th:text="${workShift}"></option>
-						</select> 
+						</select>  -->
 					<p /> 
 
 					<hr>

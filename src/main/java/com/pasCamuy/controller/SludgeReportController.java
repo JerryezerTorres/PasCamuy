@@ -1,6 +1,8 @@
 package com.pasCamuy.controller;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pasCamuy.model.Contacts;
 import com.pasCamuy.model.SludgeReport;
+import com.pasCamuy.model.User;
 import com.pasCamuy.service.ISludgeReportService;
 
 @Controller
@@ -109,6 +112,17 @@ public class SludgeReportController {
 		sludgeReportService.delete(id);
 		attribute.addFlashAttribute("warning", "Contacto eliminado exitosamente");
 		return "redirect:/views/reports/sludge/sludgeReport";
+		
+	}
+	
+	@GetMapping("/showDetails/{id}")
+	public String showDetails (@PathVariable ("id") Integer id, Model model ) throws IOException  {
+	
+		Optional <SludgeReport> sludgeReport= sludgeReportService.findByIdList(id);
+		model.addAttribute("sludgeReport", sludgeReport.get());
+		System.out.println(sludgeReport.get());
+
+		return "/views/reports/sludge/showDetailsOfSludge";
 		
 	}
 

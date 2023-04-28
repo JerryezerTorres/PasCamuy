@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template_fragments/head :: head"></head>
+<title>Informe de Registro de Químicos</title>
+
+<body>
+	<div th:replace="template_fragments/navbar ::  navbar"></div>
+	<div th:replace="template_fragments/mensajeDeAlerta :: mensajeDeAlerta"></div>
+	<br>
+
+	<div class="container-fluid">
+
+		<div class="container">
+			<div th:replace="template_fragments/navReports ::  navReports"></div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-3">
+					<p th:each="chemicalList : ${chemicalList}" class="text-muted text"> Fecha: 
+						<strong 
+					  		 th:text="${#dates.format (chemicalList.dateYesterday,'dd-MM-yyyy')}">
+					   </strong>
+					</p>
+			<!-- 		<br> <br> -->
+					<div class="d-grid gap-2 mt-4">
+						<a class="btn btn-primary " th:href="@{/views/reports/chemical/createChemicalReport}"
+							th:text="'Registrar Químicos'" tittle="Registrar Químicos"> 
+						</a>
+						<button class="btn btn-primary" type="button">Editar Registro </button>
+						<!-- <button class="btn btn-primary" type="button">Borrar Registro</button> -->
+						<input class="btn btn-primary" type="date">
+						
+					</div>
+					<br >
+					<div>
+				<br><br>
+						<table class="table table-bordered table-hover table-striped  text-center mt-3 ">
+							<thead>
+								<tr>
+									<th class="text-center" colspan="5" scope="col">TOTALIZADOR DE FLUJO</th>
+								</tr>
+							</thead>
+							<tbody th:each="chemicalList : ${chemicalList}">
+								<tr>
+									<th class="text-start">LECTURA DE HOY </th>
+									<td th:text="${chemicalList.flowTotalizerToday}">3,999.999</td>
+							</tr>
+								<tr>	
+									<th class="text-start">LECTURA DE AYER </th>
+									<td th:text="${chemicalList.flowTotalizerYesterday}">3,999.999</td>
+								</tr>
+								<tr>	
+									<th class="text-center">TOTAL </th>
+									<td th:text="${chemicalList.totalFlow}">3,999.999</td>
+								</tr>
+							</tbody>
+						</table>
+						
+						</div>
+				</div>
+			
+				<div class="col-8">
+					<div class="text-center mt-3">
+						<h4>INFORME DE PRODUCTOS QUIMICOS</h4>
+					</div>
+					<table
+						class="table table-bordered table-hover table-striped mt-1 text-center">
+						<thead>
+							<tr>
+								<th colspan="5" scope="col">CLORO TONELADA</th>
+								<th colspan="5"></th>
+							</tr>
+						</thead>
+						<thead>
+							<tr>
+								<th colspan="2" scope="col">INVENTARIOS DE CILINDROS</th>
+								<th scope="col">LECTURA DE ROMANAS</th>
+								<th scope="col">ROMANA 1</th>
+								<th scope="col">ROMANA 2</th>
+								<th colspan="2" scope="col">HTH</th>
+
+							</tr>
+						</thead>
+						<tbody th:each="chemicalList : ${chemicalList}">
+							<tr >
+								<th scope="row">LLENOS</th>
+								<td th:text="${chemicalList.fullCylinders}">1</td>
+								<td><strong>LECTURA AYER</strong></td>
+								<td th:text="${chemicalList.chlorineReadingYesterday1}">800</td>
+								<td th:text="${chemicalList.chlorineReadingYesterday2}">1000</td>
+								<td ><strong>INV. (LBS)</strong></td>
+								<td th:text="${chemicalList.hthReadingYesterday}">160</td>
+							</tr>
+							<tr>
+								<th scope="row">VACIOS</th>
+								<td th:text="${chemicalList.emptyCylinders}">1</td>
+								<td><strong>LECTURA HOY</strong></td>
+								<td th:text="${chemicalList.chlorineReadingToday1}">720</td>
+								<td th:text="${chemicalList.chlorineReadingYesterday2}">2000</td>
+								<td><strong>USO (LBS)</strong></td>
+								<td th:text="${chemicalList.hthConsumption}">0 LBS</td>
+							</tr>
+							<tr>
+								<th scope="row">EN USO</th>
+								<td th:text="${chemicalList.cylindersInUse}">2</td>
+								<td><strong>CONSUMO</strong></td>
+								<td th:text="${chemicalList.chlorineConsumption1}">80</td>
+								<td th:text="${chemicalList.chlorineConsumption2}">0</td>
+								<td><strong>Balance (LBS)</strong></td>
+								<td th:text="${chemicalList.hthReadingToday}">0 LBS</td>
+							</tr>
+							<tr>
+								<th scope="row">TOTAL</th>
+								<td>4</td>
+								<td colspan="5"></td>
+
+							</tr>
+						</tbody>
+					</table>
+					<table class="table table-bordered table-hover table-striped mt-1 text-center">
+						<thead>
+							<tr>
+								<th colspan="4" scope="col">OTROS QUIMICOS</th>
+							</tr>
+						</thead>
+						<thead>
+							<tr>
+								<th scope="col">NOMBRE DE QUIMICOS</th>
+								<th scope="col">LECTURA DE AYER</th>
+								<th scope="col">LECTURA DE HOY</th>
+								<th scope="col">CONSUMO</th>
+							</tr>
+						</thead>
+						<tbody th:each="chemicalList : ${chemicalList}">
+							<tr>
+								<th scope="row">BISULFITO</th>
+								<td th:text="${chemicalList.bisulfiteReadingYesterday}">20.5</td>
+								<td th:text="${chemicalList.bisulfiteReadingToday}">19.0</td>
+								<td th:text="${chemicalList.bisulfiteConsumption}">1.5</td>
+							</tr>
+							<tr>
+								<th scope="row">FERRICO</th>
+								<td th:text="${chemicalList.ferricReadingYesterday}">19"</td>
+								<td th:text="${chemicalList.ferricReadingToday}">17"</td>
+								<td th:text="${chemicalList.ferricConsumption}">2"</td>
+							</tr>
+							<tr>
+								<th scope="row">SODA CAUSTICA</th>
+								<td th:text="${chemicalList.causticSodaReadingYesterday}">50"</td>
+								<td th:text="${chemicalList.causticSodaReadingToday}">48"</td>
+								<td th:text="${chemicalList.causticConsumption}">2"</td>
+							</tr>
+							<tr>
+								<th scope="row">DIESEL</th>
+								<td th:text="${chemicalList.dieselReadingYesterday}">26"</td>
+								<td th:text="${chemicalList.dieselReadingToday}">26"</td>
+								<td th:text="${chemicalList.dieselConsumption}">0"</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+<!-- =========================================================================================================================================== -->
+		<div class="col-1"></div>
+	</div>
+	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<!-- <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script> -->
+	<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
+</body>
+</html>

@@ -27,6 +27,9 @@ public class Bitacora {
 	private String operatorName;
 	private String workShift;
 
+	//*****************************
+	//se puede utilizar LocalDate  como otro tipo de fecha y no habria que utilizar la anotacion @Temporal 
+	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "date")

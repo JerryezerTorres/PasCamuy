@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,8 +43,8 @@ public class BitacoraController {
 	@Autowired
 	private IBitacoraService bitacoraService;
 
-//	@Autowired
-//	private IWorkShiftService workShiftService;
+	@Autowired
+	private IWorkShiftService workShiftService;
 	
 //	@Autowired
 //	private IOperatorNameService operatorNameService;
@@ -54,7 +55,11 @@ public class BitacoraController {
 
 		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
 
-		PageRequest pageRequest = PageRequest.of(page, 5);
+		
+//Esto es para ordenar en forma descendente usando el Sort... Hay que mejorarlo
+		PageRequest pageRequest = PageRequest.of(page, 5 ,Sort.by("id").descending()) ;
+//		PageRequest pageRequest = PageRequest.of(page, 5 ,Sort.by("date").descending()) ;
+//		PageRequest pageRequest = PageRequest.of(page, 5 );
 		Page<Bitacora> pageBitacora = bitacoraService.findAll(pageRequest);
 
 //		List<WorkShift> workShift = workShiftService.findAll();
@@ -75,7 +80,7 @@ public class BitacoraController {
 		model.addAttribute("next", page + 2);
 		model.addAttribute("prev", page);
 		model.addAttribute("last", totalPage);
-
+		
 		return "/views/reports/bitacora";
 
 	}
@@ -83,14 +88,14 @@ public class BitacoraController {
 	@GetMapping("/create")
 	public String createRecord(Model model) {
 		Bitacora bitacora = new Bitacora();
-//		List<WorkShift> workShift = workShiftService.findAll();
+		List<WorkShift> workShift = workShiftService.findAll();
 //		List<OperatorName> operatorName = operatorNameService.findAll();
 		
 
-		List<String> workShift = new ArrayList<String>();
-		workShift.add("6:00 @ 2:00pm");
-		workShift.add("2:00 @ 10:00pm");
-		workShift.add("10:00 @ 6:00am");
+//		List<String> workShift = new ArrayList<String>();
+//		workShift.add("6:00 @ 2:00pm");
+//		workShift.add("2:00 @ 10:00pm");
+//		workShift.add("10:00 @ 6:00am");
 
 		List<String> operatorName = new ArrayList<String>();
 		operatorName.add("Jerryezer Torres");
@@ -108,7 +113,6 @@ public class BitacoraController {
 		model.addAttribute("bitacora", bitacora);
 		model.addAttribute("workShift", workShift);
 		model.addAttribute("operatorName", operatorName);
-		//System.out.println(operatorName.toString());
 		model.addAttribute("operatorAssistantName", operatorAssistantName);	
 
 		return "/views/reports/createReport";

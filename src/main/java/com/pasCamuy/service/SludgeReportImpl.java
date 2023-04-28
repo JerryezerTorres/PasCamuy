@@ -1,6 +1,7 @@
 package com.pasCamuy.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,11 @@ public class SludgeReportImpl implements ISludgeReportService {
 	@Override
 	public void delete(Integer id) {
 		sludgeReportRepository.deleteById(id);
+	}
+
+	@Override
+	public Optional<SludgeReport> findByIdList(Integer id) {
+		return sludgeReportRepository.findById(id);
 	}
 
 }

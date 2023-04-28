@@ -34,10 +34,21 @@ public class BitacoraSeviceImpl implements IBitacoraService {
 	public Page<Bitacora> findAll(Pageable pageable) {
 		return bitacoraRepository.findAll(pageable);
 	}
-
+	
 	public List<Bitacora> findAll() {
 		return (List<Bitacora>) bitacoraRepository.findAll();
 	}
+
+	@Override
+	public List<Bitacora> findByIdOrderByIdDesc() {
+		return bitacoraRepository.findByIdOrderByIdDesc();
+	}
+
+	@Override
+	public List<Bitacora> findByDateOrderByDateDesc() {
+		return bitacoraRepository.findByDateOrderByDateDesc();
+	}
+
 
 
 	

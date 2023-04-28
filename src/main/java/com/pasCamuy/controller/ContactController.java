@@ -31,8 +31,12 @@ public class ContactController {
 	@GetMapping("contacts")
 	public String contactList(Model model) {
 		
-		List<Contacts> contactList = contactsService.findAll();
+		//List<Contacts> contactList = contactsService.findAll();
+		List<Contacts> contactList = contactsService.findByIdOrderAsc();
+		//List<Contacts> contactList = contactsService.findByIdOrderByIdDesc();
 		model.addAttribute("contacts", contactList);
+		
+		System.out.println(contactList);
 		
 		return "/views/contactList/contacts";
 		

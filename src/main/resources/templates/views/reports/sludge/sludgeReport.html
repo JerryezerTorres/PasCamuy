@@ -59,146 +59,52 @@
 							<th scope="col">H.T.</th>
 							<th scope="col">Editar</th>
 							<th scope="col">Borrar</th>
+							<th scope="col">Detalles</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="sludgeListReport : ${sludgeListReport}">
 						
-						
 						<!-- <th th:text="${#dates.format (sludgeListReport.date,'dd-MM-yyyy')}">0:00</th> -->
 						
-							<th th:text="${sludgeListReport.hour}">0:00</th>
+							<th th:text="${sludgeListReport.hour}"></th>
 							<td th:text="|${sludgeListReport.cp101}''|" > &quot; </td>
-							<td th:text="|${sludgeListReport.cp102}''|">12"</td>
-							<td th:text="|${sludgeListReport.ci101}''|">12"</td>
-							<td th:text="|${sludgeListReport.ci102}''|">12"</td>
-							<td th:text="|${sludgeListReport.cf101}''|">12"</td>
-							<td th:text="|${sludgeListReport.cf102}''|">12"</td>
-							<td th:text="|${sludgeListReport.htLevel}%|">75%</td>
-							
-								<td><a class="btn btn-success btn-sm"
-						th:href="@{/views/reports/sludge/edit/} + ${sludgeListReport.id}"
-						th:text="'Editar'" tittle="Editar"> </a></td>
-							
-							
-			 					<td><a class="btn btn-danger btn-sm"
-					th:href="@{/views/reports/sludge/delete/} + ${sludgeListReport.id}"
-					th:text="'Borrar '" tittle="Eliminar "
-					onclick="return confirm ('Estás seguro de Eliminar el registro?');"
-					>Eliminar</a></td> 
+							<td th:text="|${sludgeListReport.cp102}''|"></td>
+							<td th:text="|${sludgeListReport.ci101}''|"></td>
+							<td th:text="|${sludgeListReport.ci102}''|"></td>
+							<td th:text="|${sludgeListReport.cf101}''|"></td>
+							<td th:text="|${sludgeListReport.cf102}''|"></td>
+							<td th:text="|${sludgeListReport.htLevel}%|"></td>
+							<td>
+								<a class="btn btn-success btn-sm"
+									th:href="@{/views/reports/sludge/edit/} + ${sludgeListReport.id}"
+									th:text="'Editar'" tittle="Editar"> 
+								</a>
+							</td>
+			 				<td>
+			 					<a class="btn btn-danger btn-sm"
+									th:href="@{/views/reports/sludge/delete/} + ${sludgeListReport.id}"
+									th:text="'Borrar '" 
+									tittle="Eliminar "
+									onclick="return confirm ('EstÃ¡s seguro de eliminar el registro?');">Eliminar
+								</a>
+							</td>
+							<td>
+								<a class="btn btn-info btn-sm"
+									th:href="@{/views/reports/sludge/showDetails/} + ${sludgeListReport.id}" 
+									th:text="'Ver Detalle'" 
+									tittle="Ver detelle"> 
+								</a>
+							</td>
 						</tr>
-<!-- 						<tr>
-							<th scope="row">5:00</th>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>75%</td>
-						</tr>
-						<tr>
-							<th scope="row">7:00</th>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>75%</td>
-						</tr>
-						<tr>
-							<th scope="row">13:00</th>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>75%</td>
-						</tr>
-						<tr>
-							<th scope="row">15:00</th>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>75%</td>
-						</tr>
-						<tr>
-							<th scope="row">21:00</th>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>12"</td>
-							<td>75%</td>
-						</tr> -->
 					</tbody>
 				</table>
-
 				<hr>
-
-<!-- 				<table
-					class="table table-bordered table-hover table-striped mt-3 text-center">
-					<thead>
-						<tr>
-							<th scope="col">BOMBEO DE LODOS</th>
-							<th colspan="2" scope="col">Turno 6-2</th>
-							<th colspan="2" scope="col">Turno 2-10</th>
-							<th colspan="2" scope="col">Turno 10-6</th>
-						</tr>
-					</thead>
-
-					<thead>
-						<tr>
-							<th scope="row"></th>
-							<th scope="row">101</th>
-							<th scope="row">102</th>
-							<th scope="row">101</th>
-							<th scope="row">102</th>
-							<th scope="row">101</th>
-							<th scope="row">102</th>
-
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">Tiempo de Bombeo</th>
-							<td>-</td>
-							<td>5 x 4</td>
-							<td>-</td>
-							<td>4 x 4</td>
-							<td>-</td>
-							<td>-</td>
-						</tr>
-						<tr>
-							<th scope="row">Volumen de Bombeo</th>
-							<td>0 gal</td>
-							<td>2,000 gal</td>
-							<td>0 gal</td>
-							<td>1,600 gal</td>
-							<td>-</td>
-							<td>-</td>
-
-						</tr>
-					</tbody>
-				</table> 
+	<!-- =========================================================================================================================================== -->
 				
-				
-				<div class="form-floating">
-				  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-				  <label for="floatingTextarea2"><strong>Comentarios:</strong></label>
-				</div>-->
-				<br><br>
-				
-			</div>
-<!-- ====================================================================================================================================== -->
 			<div class=" "> </div>
 		</div>
+	</div>
 	</div>
 
 	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
