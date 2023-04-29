@@ -24,9 +24,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pasCamuy.model.Bitacora;
+import com.pasCamuy.model.OperatorAssistantName;
 import com.pasCamuy.model.OperatorName;
 import com.pasCamuy.model.WorkShift;
 import com.pasCamuy.service.IBitacoraService;
+import com.pasCamuy.service.IOperatorAssistantNameService;
 import com.pasCamuy.service.IOperatorNameService;
 import com.pasCamuy.service.IUserService;
 import com.pasCamuy.service.IWorkShiftService;
@@ -46,8 +48,11 @@ public class BitacoraController {
 	@Autowired
 	private IWorkShiftService workShiftService;
 	
-//	@Autowired
-//	private IOperatorNameService operatorNameService;
+	@Autowired
+	private IOperatorNameService operatorNameService;
+	
+	@Autowired
+	private IOperatorAssistantNameService operatorAssistantNameService;
 	
 
 	@GetMapping("/bitacora")
@@ -55,15 +60,8 @@ public class BitacoraController {
 
 		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
 
-		
-//Esto es para ordenar en forma descendente usando el Sort... Hay que mejorarlo
-		PageRequest pageRequest = PageRequest.of(page, 5 ,Sort.by("id").descending()) ;
-//		PageRequest pageRequest = PageRequest.of(page, 5 ,Sort.by("date").descending()) ;
-//		PageRequest pageRequest = PageRequest.of(page, 5 );
+		PageRequest pageRequest = PageRequest.of(page, 5 ,Sort.by("id").descending()) ; // esto es anadido ,Sort.by("id").descending()
 		Page<Bitacora> pageBitacora = bitacoraService.findAll(pageRequest);
-
-//		List<WorkShift> workShift = workShiftService.findAll();
-//		List<OperatorName> operatorName = operatorNameService.findAll();
 		
 		int totalPage = pageBitacora.getTotalPages();
 		if (totalPage > 0) {
@@ -71,9 +69,7 @@ public class BitacoraController {
 
 			model.addAttribute("pages", pages);
 		}
-
-//		model.addAttribute("workShift", workShift);
-//		model.addAttribute("operatorName", operatorName);
+		
 		model.addAttribute("titulo", "Bitacora / PAS-Camuy");
 		model.addAttribute("bitacora", pageBitacora.getContent());
 		model.addAttribute("current", page + 1);
@@ -87,27 +83,11 @@ public class BitacoraController {
 
 	@GetMapping("/create")
 	public String createRecord(Model model) {
+		
 		Bitacora bitacora = new Bitacora();
 		List<WorkShift> workShift = workShiftService.findAll();
-//		List<OperatorName> operatorName = operatorNameService.findAll();
-		
-
-//		List<String> workShift = new ArrayList<String>();
-//		workShift.add("6:00 @ 2:00pm");
-//		workShift.add("2:00 @ 10:00pm");
-//		workShift.add("10:00 @ 6:00am");
-
-		List<String> operatorName = new ArrayList<String>();
-		operatorName.add("Jerryezer Torres");
-		operatorName.add("Ricardo Borges");
-		operatorName.add("Keylanis Cortes");
-		operatorName.add("Xiomara Martínez");
-		operatorName.add("Leisha Ríos");
-
-		List<String> operatorAssistantName = new ArrayList<String>();
-		operatorAssistantName.add("Akeem Torres");
-		operatorAssistantName.add("Luis Zamot");
-		operatorAssistantName.add("Wilfredo Rodríguez");
+		List<OperatorName> operatorName = operatorNameService.findAll();
+		List<OperatorAssistantName> operatorAssistantName = operatorAssistantNameService.findAll();
 
 		model.addAttribute("titulo", "Bitacora de Pas-Cammuy");
 		model.addAttribute("bitacora", bitacora);
@@ -123,7 +103,7 @@ public class BitacoraController {
 	public String save(Bitacora bitacora, Model model, BindingResult result, RedirectAttributes attribute) {
 
 		if (result.hasErrors()) {
-			model.addAttribute("titulo", "Bitacora!!!!!!");
+			model.addAttribute("titulo", "Bitacora");
 			model.addAttribute("bitacora", bitacora);
 			System.out.println("Hubo errores en el formlario");
 
@@ -138,6 +118,10 @@ public class BitacoraController {
 	@GetMapping("/edit/{id}")
 	public String editarBitacora(@PathVariable("id") Integer id, Model model, RedirectAttributes attribute) {
 
+		List<WorkShift> workShift = workShiftService.findAll();
+		List<OperatorName> operatorName = operatorNameService.findAll();
+		List<OperatorAssistantName> operatorAssistantName = operatorAssistantNameService.findAll();
+		
 		Bitacora bitacora = null;
 
 		if (id > 0) {
@@ -154,23 +138,6 @@ public class BitacoraController {
 			attribute.addFlashAttribute("error", "ATENCION: Error con el id del registro... ");
 			return "redirect:/views/reports/bitacora";
 		}
-
-		List<String> workShift = new ArrayList<String>();
-		workShift.add("6:00 @ 2:00pm");
-		workShift.add("2:00 @ 10:00pm");
-		workShift.add("10:00 @ 6:00am");
-
-		List<String> operatorName = new ArrayList<String>();
-		operatorName.add("Jerryezer Torres");
-		operatorName.add("Ricardo Borges");
-		operatorName.add("Keylanis Cortes");
-		operatorName.add("Xiomara Martínez");
-		operatorName.add("Leisha Ríos");
-
-		List<String> operatorAssistantName = new ArrayList<String>();
-		operatorAssistantName.add("Akeem Torres");
-		operatorAssistantName.add("Luis Zamot");
-		operatorAssistantName.add("Wilfredo Rodríguez");
 
 		model.addAttribute("titulo", "Editar Registro");
 		model.addAttribute("bitacora", bitacora);

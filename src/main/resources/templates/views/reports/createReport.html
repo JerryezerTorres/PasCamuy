@@ -35,9 +35,10 @@
 							aria-label=".form-select-sm example" id="operatorName">
 							<option value="0">Operador de Turno:</option>
 							<option th:each="operatorName : ${operatorName}"
-								th:value="${operatorName}" th:text="${operatorName}"></option>
+								th:value="${operatorName.id}" 
+								th:text="${operatorName.operatorName}"></option>
 						</select>
-					<p /> 
+					<p/> 
 					<p class="mb-1">
 						<select th:field="*{operatorAssistantName}"
 							class="form-select form-select-sm"
@@ -45,42 +46,21 @@
 							<option value="0">Ayudante de Turno</option>
 							<option
 								th:each="operatorAssistantName : ${operatorAssistantName}"
-								th:value="${operatorAssistantName}"
-								th:text="${operatorAssistantName}"></option>
+								th:value="${operatorAssistantName.id}"
+								th:text="${operatorAssistantName.operatorAssistantName}"></option>
 						</select>
 					<p />
-					<!-- Esto es para traer los datos desde la BD  -->
  					<p class="mb-1">
 						<select th:field="*{workShift}" class="form-select form-select-sm"
 							aria-label=".form-select-sm example" id="workShift">
 							<option value="0">Turno de Trabajo:</option>
 							<option th:each="workShift :${workShift}"
 								th:value="${workShift.id}"
-								th:text="${workShift.workshift}" />
-	<!--th:value="${workShift.id}"   -->						
+								th:text="${workShift.workshift}" />					
 						</select> 
 					</p>
-					 
-						<!-- Esto es para traer los datos desde la BD  -->					
-<!-- 					<p class="mb-1">
-						<select th:field="*{operatorName}" class="form-select form-select-sm"
-							aria-label=".form-select-sm example" id="operatorName">
-							<option value="0">Operador de Turno:</option>
-							<option 
-								th:each="operatorName : ${operatorName}"
-								th:value="${operatorName.id}"
-								th:text="${operatorName.operatorName}" />
-						</select> 
-					</p> -->
-
-
  				<p class="mb-1">
-<!--  						<select th:field="*{workShift}" class="form-select form-select-sm"
-							aria-label=".form-select-sm example" id="workShift">
-							<option value="0">Turno de Trabajo:</option>
-						 	<option th:each="workShift : ${workShift}"
-								th:value="${workShift}" th:text="${workShift}"></option>
-						</select>  -->
+
 					<p /> 
 
 					<hr>

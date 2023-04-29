@@ -24,17 +24,17 @@
 						<div class="row">
 							<div class="col-3" >
 								<p class="text-muted " >
-									 Operador: <strong th:text="${b.operatorName}"></strong>
+									 Operador: <strong th:text="${b.operatorName.operatorName}"></strong>
 								</p>
 							</div>
 							<div class="col-3">
 								<p class="text-muted text">
-									TA. <strong th:text="${b.operatorAssistantName}"></strong>
-								</p>
+									TA. <strong th:text="${b.operatorAssistantName.operatorAssistantName}"></strong>
+								</p>						 						 
 							</div>
 							<div class="col-3">
 								<p class="text-muted text">
-									Turno: <strong th:text="${b.workShift}"></strong>
+									Turno: <strong th:text="${b.workShift.workshift}"></strong>
 								</p>
 							</div>
 							<div class="col-3">
