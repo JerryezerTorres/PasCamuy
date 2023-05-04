@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.pasCamuy.model.Contacts;
 import com.pasCamuy.model.SludgeReport;
-import com.pasCamuy.model.User;
 import com.pasCamuy.service.ISludgeReportService;
 
 @Controller
@@ -42,6 +40,7 @@ public class SludgeReportController {
 
 		model.addAttribute("titulo", "Informe de Niveles de Cieno");
 		model.addAttribute("sludgeReport", sludgeReport);
+
 		
 		return "/views/reports/sludge/createSludgeReport";
 		
@@ -53,6 +52,8 @@ public class SludgeReportController {
 		if (result.hasErrors()) {
 			model.addAttribute("titulo", "Bitacora!!!!!!");
 			model.addAttribute("sludgeReport", sludgeReport);
+			
+			
 			System.out.println("Hubo errores en el formlario");
 
 			return "/views/reports/sludge/sludgeReport";

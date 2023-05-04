@@ -18,7 +18,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "sludeReport")
+@Table(name = "SludgeReport")
 public class SludgeReport implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -37,6 +37,12 @@ public class SludgeReport implements Serializable {
 	
 	private String hour;
 	private String user;
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(iso = ISO.DATE)
+	@Column(name = "date")
+//	NotNull
+	private Date date; 
 	
 //	@Temporal(TemporalType.DATE)
 //	@DateTimeFormat(iso = ISO.DATE)
@@ -109,13 +115,13 @@ public class SludgeReport implements Serializable {
 		this.htLevel = htLevel;
 	}
 
-//	public Date getDate() {
-//		return date;
-//	}
-//
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
 	public String getUser() {
 		return user;
@@ -140,16 +146,16 @@ public class SludgeReport implements Serializable {
 	public void setHour(String hour) {
 		this.hour = hour;
 	}
+	
+	public SludgeReport() {
+		
+	}
 
 	@Override
 	public String toString() {
 		return "SludgeReport [id=" + id + ", cp101=" + cp101 + ", cp102=" + cp102 + ", ci101=" + ci101 + ", ci102="
 				+ ci102 + ", cf101=" + cf101 + ", cf102=" + cf102 + ", htLevel=" + htLevel + ", comment=" + comment
-				+ ", hour=" + hour + ", user=" + user + "]";
-	}
-	
-	public SludgeReport() {
-		
+				+ ", hour=" + hour + ", user=" + user + ", date=" + date + "]";
 	}
 
 

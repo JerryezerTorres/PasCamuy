@@ -15,11 +15,12 @@
 		<div class="d-grid gap-2 mt-5 ">
 			<form class="row" 
 				th:action="@{/views/reports/chemical/save}" 
-				th:object="${chemical}" method="post">
+				th:object="${chemicalList}" method="post">
 
-				<input type="hidden" th:field="*{id}">
-
-  				<div class=" col-2  ">
+				<input type="hidden" th:field="*{id}"> 
+				<input type="date"  th:field="*{dateToday}">
+	
+				<div class=" col-2  ">
 					<label for="cylinders" class="form-label fw-bold ">Inventario de Cilindros</label>
 					<hr>
 					<label for="fullCylinders" class="form-label fw-bold ">Llenos</label> 
@@ -112,12 +113,17 @@
 					<label for="totalFlow" class="form-label fw-bold">Total de  Flujo</label> 
 					<input type="text" th:field="*{totalFlow}" class="form-control" id="totalFlow">
 				</div>
-				<div class="col-6">
-					<label for="inchesOfrain" class="form-label fw-bold">Comentarios:</label>
+				
+				
+ 				<div class="col-6">
+					<label for="comment" class="form-label fw-bold">Comentarios:</label>
 					<hr>
-					<label for="inchesOfrain" class="form-label fw-bold">Redacte cualquier suceso ocurrido con los químicos.</label>
-					<textarea class="form-control" placeholder="Redacque aquí..." id="floatingTextarea2" rows="7"></textarea>
+					<label for="comment" class="form-label fw-bold">Redacte cualquier suceso ocurrido con los químicos.</label>
+					<textarea class="form-control" th:field="*{comment}"  placeholder="Redacque aquí..." id="comment" rows="7"></textarea>				
 				</div> 
+				
+				
+				
 <!-- 				<div>
 				<label>Fecha de ayer</label>
 				 <input th:field="*{dateYesterday}" type="date">

@@ -11,8 +11,6 @@
 	<div class="container   ">
 		<h2 th:text="${titulo}" class="text-center fst-normal"></h2>
 		<br>
-
-
 		<div class="container">
 			<div class="row">
 				<div class="col-3">
@@ -38,16 +36,23 @@
 							th:object="${rainReport}" method="post">
 
 							<input type="hidden" th:field="*{id}">
-
+							<div class=" col ">
+								<label for="inchesOfrain" class="form-label fw-bold">Fecha
+									</label> <input type="date" th:field="*{date}"
+									class="form-control" id="date"> <strong><small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('date')}"
+									th:errors="*{date}"></small></strong>
+							</div>
 							<div class=" col ">
 								<label for="hour" class="form-label fw-bold ">Hora</label> 
 								<select
 									th:field="*{hour}" class="form-select "
 									aria-label="Default select example" id="hour">
 									<!-- <option selected>Seleccione:</option>   -->
-									<option value="1">6:00 @ 2:00pm</option>
-									<option value="2">2:00 @ 10:00pm</option>
-									<option value="3">10:00 @ 6:00am</option>
+									<option value="6:00 @ 2:00pm">6:00 @ 2:00pm</option>
+									<option value="2:00 @ 10:00pm">2:00 @ 10:00pm</option>
+									<option value="10:00 @ 6:00am">10:00 @ 6:00am</option>
 								</select>
 
 							</div>
@@ -63,10 +68,6 @@
 						<label for="comment" class="form-label fw-bold">Comentarios:</label>
 						<textarea th:field="*{comment}" class="form-control" id="comment" rows="6"> </textarea>
 					</div>
-						<!-- 	<div class=" mt-3">
-						<label for="comment" class="form-label fw-bold">Comentarios:</label>
-						<textarea class="form-control" id="comment" rows="6"> </textarea>
-					</div> -->
 							<div class="d-grid gap-2 col-2 mx-auto ">
 								<input type="submit" class="btn btn-primary btn-sm "
 									value="Guardar">

@@ -44,11 +44,14 @@
 							<th scope="col">NIVEL HT</th>
 							<th scope="col"></th>
 							<th scope="col"></th>
+							<th scope="col"></th>
+							<th scope="col"></th>
 						</tr>
 					</thead>
 
 					<thead>
 						<tr>
+							<th scope="col">Fecha</th>
 							<th scope="col">HORA</th>
 							<th scope="col">101</th>
 							<th scope="col">102</th>
@@ -67,6 +70,7 @@
 						
 						<!-- <th th:text="${#dates.format (sludgeListReport.date,'dd-MM-yyyy')}">0:00</th> -->
 						
+							<th th:text="${#dates.format (sludgeListReport.date,'dd-MM-yyyy')}"></th>
 							<th th:text="${sludgeListReport.hour}"></th>
 							<td th:text="|${sludgeListReport.cp101}''|" > &quot; </td>
 							<td th:text="|${sludgeListReport.cp102}''|"></td>

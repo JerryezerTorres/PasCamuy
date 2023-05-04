@@ -27,18 +27,19 @@
 					th:action="@{/views/reports/sludge/save}"
 					th:object="${sludgeReport}"  method="post">
 															
-					<input type="hidden" th:field="*{id}">	
+					<input type="hidden" th:field="*{id}">
+					<input type="date" th:field="*{date}"	>
 								
 					<div class="col-2 text-center">
 						<label for="hora" class="form-label fw-bold">Hora</label>
 				 		<select th:field="*{hour}"  class="form-select" aria-label="Default select example" id="hora">
 						 	<!-- <option selected>Seleccione:</option>  -->
-							<option value="1">0:00</option>
-							<option value="2">5:00</option>
-							<option value="3">7:00</option>
-							<option value="4">13:00</option>
-							<option value="5">15:00</option>
-							<option value="6">21:00</option>
+							<option value="0:00">0:00</option>
+							<option value="5:00">5:00</option>
+							<option value="7:00">7:00</option>
+							<option value="13:00">13:00</option>
+							<option value="15:00">15:00</option>
+							<option value="21:00">21:00</option>
 						</select> 
 
 					</div>

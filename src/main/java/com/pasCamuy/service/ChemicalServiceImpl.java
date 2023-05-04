@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.pasCamuy.model.Chemical;
@@ -38,6 +40,21 @@ public class ChemicalServiceImpl implements IChemicalService {
 	@Override
 	public Optional<Chemical> findByIdList(Integer id) {
 		return chemicalRepository.findById(id);
+	}
+
+	@Override
+	public Page<Chemical> findAll(Pageable pageble) {
+		return chemicalRepository.findAll(pageble); 
+	}
+
+	@Override
+	public List<Chemical> findByOrderByDesc() {
+		return chemicalRepository.findByIdOrderByIdDesc();
+	}
+
+	@Override
+	public List<Chemical> findByOrderByDateDesc() {
+		return chemicalRepository.findByDateOrderByDateDesc();
 	}
 
 

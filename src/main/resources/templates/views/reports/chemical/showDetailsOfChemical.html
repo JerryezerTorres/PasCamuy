@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="template_fragments/head :: head"></head>
-<title>Informe de Cieno</title>
+<title>Detalles de Químicos</title>
 
 <body>
 	<div th:replace="template_fragments/navbar ::  navbar"></div>
@@ -14,48 +14,50 @@
 	<div class="container">
 		<div class="row">
 
-			<div class="col-3">
+<!-- 			<div class="col-3">
 				<br> <br>
 				<div class="d-grid gap-2 mt-5">
 
-					<a class="btn btn-primary "
+					 <a class="btn btn-primary "
 						th:href="@{/views/reports/sludge/createSludgeReport}"
 						th:text="'Registrar Niveles de Cieno'"
-						tittle="Registrar Niveles de Cieno"> </a> <a
+						tittle="Registrar Niveles de Cieno"> 
+						</a> 
+						<a
 						class="btn btn-primary "
 						th:href="@{/views/reports/sludge/createSludgeReport}"
 						th:text="'Registrar Bombeo de Lodo'"
 						tittle="Registrar Bombeo de Lodo"> </a> <input
-						class="btn btn-primary" type="date">
+						class="btn btn-primary" type="date"> 
 				</div>
-			</div>
+			</div> -->
 
 			<!-- =========================================================================================================================================== -->
-			<div class="col-9">
+ 			<div class="col-md-6 offset-md-3">
 				<div class="text-center mt-3 ">
-					<h4>Detalles de la medición del cieno y sus coponentes</h4>
+					<h4>Detalles del Informe de Químicos</h4>
 				</div>
 				<br>
 				<hr>
 			<div class="row">
 			<div class="col-4">
-				<p  class="text-muted">Usuario: <strong th:text="${sludgeReport.user}">Jerryezer Torres</strong></p>
+			 	<p class="text-muted">Usuario: <strong th:text="${chemicalList.user}">Jerry</strong></p>
 			</div>
-			<div class="col-4">
-				<p class="text-muted">Hora: <strong th:text="${sludgeReport.hour}">4 de Marzo de 2023</strong></p>
+			<div class="col-4"> 
+				<p  class="text-muted">Número de Registro: <strong th:text="${chemicalList.id}" >Id</strong></p>
 			</div>
-			<div class="col-4">
-				<p class="text-muted">Fecha: <strong th:text="${#dates.format (sludgeReport.date,'dd-MM-yyyy')}">4 de Marzo de 2023</strong></p>
+			<div class="col-4"> 
+				<p class="text-muted">Fecha: <strong th:text="${#dates.format (chemicalList.dateToday,'dd-MM-yyyy')}" >4 de Marzo de 2023</strong></p>
 			</div>
-			</div>
+			</div> 
 
-				<!-- <p th:text="${sludgeReport.user}"></p> -->
-				<div class="form-floating">
-					<textarea th:text="${sludgeReport.comment}" class="form-control"
+			
+ 				<div class="form-floating">
+					<textarea th:text="${chemicalList.comment}" class="form-control"
 						placeholder="Leave a comment here" id="comment"
 						style="height: 100px"></textarea>
 					<label for="comment"></label>
-				</div>
+				</div>  
 
 
 

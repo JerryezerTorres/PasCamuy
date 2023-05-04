@@ -31,7 +31,7 @@
 					</div>
 				</div>
 				<!-- =========================================================================================================================================== -->
-				<div class="col-6">
+				<div class="col-7">
 					<div class="text-center mt-4">
 						<h4>REGISTRO DE EVENTOS DE LLUVIA - AYER</h4>
 					</div>
@@ -39,6 +39,7 @@
 						class="table table-bordered table-hover table-striped mt-1 text-center">
 						<thead>
 							<tr>
+								<th scope="col">FECHA</th>
 								<th scope="col">TURNO</th>
 								<th scope="col">PULGADAS DE LLUVIA</th>
 								<th scope="col">Editar</th>
@@ -48,6 +49,7 @@
 						</thead>
 						<tbody>
 							<tr th:each="rainReportList : ${rainReportList}">
+								<th th:text="${rainReportList.date}"></th>
 								<th th:text="${rainReportList.hour}"></th>
 								<td th:text="${rainReportList.inchesOfrain}"></td>
 								<td>
@@ -60,7 +62,7 @@
 									<a class="btn btn-danger btn-sm" 
 									th:text="'Borrar '" tittle="Eliminar " 
 									th:href="@{/views/reports/rain/delete/} + ${rainReportList.id}"
-									onclick="return confirm ('Estás seguro de Eliminar el registro?');">Eliminar</a></td>
+									onclick="return confirm ('EstÃ¡s seguro de Eliminar el registro?');">Eliminar</a></td>
 							<td>
 								<a class="btn btn-info btn-sm"
 									th:href="@{/views/reports/rain/showDetails/} + ${rainReportList.id}" 

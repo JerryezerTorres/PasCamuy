@@ -1,10 +1,18 @@
 package com.pasCamuy.model;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name = "rainReport")
@@ -17,6 +25,12 @@ public class RainReport {
 	private String hour;
 	private String user;
 	private String comment;
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(iso = ISO.DATE)
+	@Column(name = "date")
+//	NotNull
+	private Date date; 
 
 	public int getId() {
 		return id;
@@ -58,11 +72,22 @@ public class RainReport {
 		this.comment = comment;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	@Override
 	public String toString() {
 		return "RainReport [id=" + id + ", inchesOfrain=" + inchesOfrain + ", hour=" + hour + ", user=" + user
-				+ ", comment=" + comment + "]";
+				+ ", comment=" + comment + ", date=" + date + "]";
 	}
+	
+	
+
 
 
 

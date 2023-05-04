@@ -13,21 +13,35 @@
 		<div class="container">
 			<div th:replace="template_fragments/navReports ::  navReports"></div>
 		</div>
-		<div class="container">
+		<div th:each="chemicalList : ${chemicalList}" class="container">
 			<div class="row">
-				<div class="col-3">
-					<p th:each="chemicalList : ${chemicalList}" class="text-muted text"> Fecha: 
-						<strong 
-					  		 th:text="${#dates.format (chemicalList.dateYesterday,'dd-MM-yyyy')}">
-					   </strong>
-					</p>
-			<!-- 		<br> <br> -->
+				<div  class="col-3">
+					<p class="text-muted text"> Fecha: <strong th:text="${#dates.format (chemicalList.dateToday,'dd-MM-yyyy')}"></strong></p>
+					<div  class="d-flex justify-content-star">
+						<span th:text=" 'Registro # ' + ${chemicalList.id}" class="  badge rounded-pill bg-primary "></span>
+					</div>
 					<div class="d-grid gap-2 mt-4">
-						<a class="btn btn-primary " th:href="@{/views/reports/chemical/createChemicalReport}"
-							th:text="'Registrar Químicos'" tittle="Registrar Químicos"> 
+						<a class="btn btn-primary " 
+							th:href="@{/views/reports/chemical/createChemicalReport}"
+							th:text="'Registrar Químicos'" 
+							tittle="Registrar Químicos"> 
 						</a>
-						<button class="btn btn-primary" type="button">Editar Registro </button>
-						<!-- <button class="btn btn-primary" type="button">Borrar Registro</button> -->
+						<a class="btn btn-primary " 
+							th:href="@{/views/reports/chemical/edit/} + ${chemicalList.id}" 
+							th:text="'Editar Químicos'" 
+							tittle="Editar Químicos"> 
+						</a>						
+					 	<a class="btn btn-primary "
+							th:href="@{/views/reports/chemical/delete/} + ${chemicalList.id}"
+							th:text="'Borrar Registro'" 
+							tittle="Borrar Registro" 
+							onclick="return confirm ('Estás seguro de Eliminar el registro?');">
+						</a>  
+						<a class="btn btn-primary"
+							th:href="@{/views/reports/chemical/showDetails/} + ${chemicalList.id}" 
+							th:text="'Ver Detalle'" 
+							tittle="Ver detelle"> 
+						</a>
 						<input class="btn btn-primary" type="date">
 						
 					</div>
@@ -40,7 +54,8 @@
 									<th class="text-center" colspan="5" scope="col">TOTALIZADOR DE FLUJO</th>
 								</tr>
 							</thead>
-							<tbody th:each="chemicalList : ${chemicalList}">
+							<tbody >
+							
 								<tr>
 									<th class="text-start">LECTURA DE HOY </th>
 									<td th:text="${chemicalList.flowTotalizerToday}">3,999.999</td>
@@ -81,7 +96,7 @@
 
 							</tr>
 						</thead>
-						<tbody th:each="chemicalList : ${chemicalList}">
+						<tbody >
 							<tr >
 								<th scope="row">LLENOS</th>
 								<td th:text="${chemicalList.fullCylinders}">1</td>
@@ -131,7 +146,7 @@
 								<th scope="col">CONSUMO</th>
 							</tr>
 						</thead>
-						<tbody th:each="chemicalList : ${chemicalList}">
+						<tbody >
 							<tr>
 								<th scope="row">BISULFITO</th>
 								<td th:text="${chemicalList.bisulfiteReadingYesterday}">20.5</td>
@@ -164,6 +179,27 @@
 
 <!-- =========================================================================================================================================== -->
 		<div class="col-1"></div>
+				<div class="mt-4">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center">
+					<li class="page-item"
+						th:classappend="${prev == 0 ? 'disabled' : ''}"><a
+						class="page-link"
+						th:href="@{|/views/reports/chemical/chemicalReport?page=${prev}|}"> Anterior</a>
+					</li>
+					<li class="page-item" th:each="page : ${pages}"
+						th:classappend="${current == page ? 'active' : ''}"><a
+						class="page-link"
+						th:href="@{|/views/reports/chemical/chemicalReport?page=${page}|}"
+						th:text="${page}"></a></li>
+					<li class="page-item"
+						th:classappend="${current == last ? 'disabled' : ''}"><a
+						class="page-link"
+						th:href="@{|/views/reports/chemical/chemicalReport?page=${next}|}"> Siguiente</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
 	</div>
 	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 	<!-- <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script> -->
