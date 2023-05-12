@@ -2,9 +2,15 @@ package com.pasCamuy.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,10 +18,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.pasCamuy.model.Chemical;
 import com.pasCamuy.model.RainReport;
-import com.pasCamuy.model.SludgeReport;
 import com.pasCamuy.service.IRainReportService;
 
 @Controller
@@ -24,13 +31,34 @@ public class RainReportController {
 
 	@Autowired
 	private IRainReportService rainReportService;
-
+	
 	@GetMapping("/rainReport")
-	public String rainReport(Model model) {
+	public String rainReport(@RequestParam Map<String, Object> params, Model model) {
 
-		List<RainReport> rainReportList = rainReportService.findAll();
-		model.addAttribute("rainReportList", rainReportList);
-		System.out.println("RainReportList " + rainReportList);
+		int page = params.get("page") !=null? (Integer.valueOf(params.get("page").toString()) -1) : 0;
+		
+		PageRequest pageRequest = PageRequest.of(page, 5, Sort.by("id").descending());
+		Page<RainReport> pageRainReports = rainReportService.findAll(pageRequest);
+		
+		int totalPage = pageRainReports.getTotalPages();
+		if(totalPage >0) {
+			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
+			model.addAttribute("pages", pages);
+		}
+		
+		model.addAttribute("titulo", "Bitacora / PAS-Camuy");
+		model.addAttribute("rainReportList", pageRainReports.getContent());
+		model.addAttribute("current", page + 1);
+		model.addAttribute("next", page + 2);
+		model.addAttribute("prev", page);
+		model.addAttribute("last", totalPage);
+		
+		System.out.println(pageRainReports.getContent());
+		
+		
+//		List<RainReport> rainReportList = rainReportService.findAll();
+//		model.addAttribute("rainReportList", rainReportList);
+//		System.out.println("RainReportList " + rainReportList);
 
 		return "/views/reports/rain/rainReport";
 	}

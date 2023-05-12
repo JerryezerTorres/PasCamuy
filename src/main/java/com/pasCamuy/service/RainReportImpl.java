@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.pasCamuy.model.RainReport;
@@ -38,6 +40,21 @@ public class RainReportImpl implements IRainReportService {
 	@Override
 	public Optional<RainReport> findByIdList(Integer id) {
 		return rainReportRepository.findById(id);
+	}
+
+	@Override
+	public Page<RainReport> findAll(Pageable pageble) {
+		return rainReportRepository.findAll(pageble);
+	}
+
+	@Override
+	public List<RainReport> findByOrderByDesc() {
+		return rainReportRepository.findByIdOrderByIdDesc();
+	}
+
+	@Override
+	public List<RainReport> findByOrderByDateDesc() {
+		return rainReportRepository.findByDateOrderByDateDesc();
 	}
 
 }

@@ -32,16 +32,6 @@ public class ChemicalReportController {
 	@Autowired
 	private IChemicalService chemicalService;
 	
-//	@GetMapping("/chemicalReport")
-//	public String chemicalRecor(Model model) {
-//		List<Chemical> chemicalList = chemicalService.findAll();
-//		model.addAttribute("chemicalList", chemicalList);
-//		System.out.println(chemicalList);
-//		
-//		return"/views/reports/chemical/chemicalReport";
-//	}
-	
-	
 	@GetMapping("/chemicalReport")
 	public String chemicalReport(@RequestParam Map<String, Object> params,  Model model) {
 		

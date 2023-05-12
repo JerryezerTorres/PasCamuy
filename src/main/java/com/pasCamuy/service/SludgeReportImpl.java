@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.pasCamuy.model.SludgeReport;
@@ -39,6 +41,21 @@ public class SludgeReportImpl implements ISludgeReportService {
 	@Override
 	public Optional<SludgeReport> findByIdList(Integer id) {
 		return sludgeReportRepository.findById(id);
+	}
+
+	@Override
+	public Page<SludgeReport> findAll(Pageable pageble) {
+		return sludgeReportRepository.findAll(pageble);
+	}
+
+	@Override
+	public List<SludgeReport> findByOrderByDesc() {
+		return sludgeReportRepository.findByIdOrderByIdDesc();
+	}
+
+	@Override
+	public List<SludgeReport> findByOrderByDateDesc() {
+		return sludgeReportRepository.findByDateOrderByDateDesc();
 	}
 
 }
