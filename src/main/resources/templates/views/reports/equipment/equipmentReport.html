@@ -8,45 +8,60 @@
 	<div th:replace="template_fragments/navbar :: navbar"></div>
 
 	<div class="container ">
-		<div th:replace="template_fragments/mensajeDeAlerta :: mensajeDeAlerta"></div>
+		<div
+			th:replace="template_fragments/mensajeDeAlerta :: mensajeDeAlerta"></div>
 		<h1 class="text-center mt-3" th:text="${titulo}"></h1>
-		<a class="btn btn-primary btn-sm" th:href="@{/views/reports/create}"
+		<a class="btn btn-primary btn-sm" th:href="@{/views/reports/equipment/create}"
 			th:text="'Crear Nuevo Registro'" tittle="Crear Nuevo Registro"> </a>
 		<br> <br>
-		
+
 		<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Numero de Equipo</th>
-      <th scope="col">Nombre de Equipo</th>
-      <th scope="col">Ubicación</th>
-      <th scope="col">Status de Equipo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Bomba 101 MLS</td>
-      <td>eNTRADA</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
+			<thead>
+				<tr>
+					<th scope="col">Foto</th>
+					<!-- <th scope="col">Id</th> -->
+					<th scope="col">Numero de SAP</th>
+					<th scope="col">Nombre de Equipo</th>
+					<th scope="col">UbicaciÃ³n</th>
+					<th scope="col">Status de Equipo</th>
+					<th scope="col">Ultimo Mantenimeinto</th>
+					<th scope="col">Editar</th>
+					<th scope="col">Eliminar</th>
+					<th scope="col">Ver Perfil</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="equipment : ${equipmentReport}">
+					<th>imagen</th>
+					<!-- <th><img th:src="@{/images/{img} (img=${u.image})}"
+						class="rounded-circle rounded mx-auto d-block" alt="..."
+						width="20" height="20"></th>  -->
+				<!-- 	<td th:text="${equipment.id}"></td> -->
+					<td th:text="${equipment.sapNumber}"></td>
+					<td th:text="${equipment.name}"></td>
+					<td th:text="${equipment.location}"></td>
+					<td th:text="${equipment.status}"></td>
+					<td th:text="${equipment.lastMaintenance}"></td>
+					<td><a class="btn btn-success btn-sm"
+						th:href="@{/views/reports/equipment/edit/} + ${equipment.id}"
+						th:text="'Editar Equipo'"
+						tittle="Editar Equipo"> 
+						</a>
+					</td>
+					<td><a class="btn btn-danger btn-sm"
+						th:href="@{/views/reports/equipment/delete/} + ${equipment.id}"
+						th:text="'Borrar Equipo'"
+						tittle="Eliminar Equipo"
+						onclick="return confirm ('Estï¿½s seguro de eliminar el equipo?');">
+						</a>
+					</td>
+					<td><a class="btn btn-info btn-sm"
+					th:href="@{/views/reports/equipment/showDetails/} + ${equipment.id}"
+						 th:text="'Ver Descripcion'"
+						tittle="Ver Dscripcion"> </a></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 
 	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>

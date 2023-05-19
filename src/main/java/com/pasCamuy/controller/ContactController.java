@@ -47,8 +47,7 @@ public class ContactController {
 		
 		Contacts contacts = new Contacts();
 		model.addAttribute("contacts",  contacts);
-		
-		
+				
 		return"/views/contactList/create";
 	}
 
@@ -103,7 +102,7 @@ public class ContactController {
 		if(id>0) {
 			contacts = contactsService.findById(id);
 			if(contacts == null) {
-				attribute.addFlashAttribute("arror", "ATENCION: El id del contacto no existe" );
+				attribute.addFlashAttribute("error", "ATENCION: El id del contacto no existe" );
 			return"redirect:/views/contactList/contacts";
 			}
 		
